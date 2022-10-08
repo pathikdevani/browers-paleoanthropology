@@ -22,6 +22,16 @@
     .inquiries_container {
         height: 100%;
         flex: 1;
+        
+        a {
+            color: #ED1B2F;
+        }
+        
+        p {
+            color: #7A7A7A;
+            font-size: 14px;
+            line-height: 1.5;
+        }
     }
 
     .form_container {
