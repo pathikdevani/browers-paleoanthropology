@@ -1,6 +1,59 @@
+import React from "react";
+
 import "./Content.scss";
+import * as data from "../data";
+
+type InquirieType = {
+  title: string;
+  office_name: string;
+  address: string[];
+  mobile: string;
+  emails: string[];
+};
+
+type InquirieProps = {
+  item: InquirieType;
+};
+
+function Inquirie(props: InquirieProps) {
+  return (
+    <div>
+      <div>
+        <div>
+          <h3>{props.item.title}</h3>
+          <p>
+            <strong>{props.item.office_name}</strong>
+            {props.item.address.map((e) => {
+              return (
+                <React.Fragment key={e}>
+                  <br />
+                  {e}
+                </React.Fragment>
+              );
+            })}
+          </p>
+          <p>
+            <a href={`tel:${props.item.mobile.split("").join()}`}>
+              {props.item.mobile}
+            </a>
+
+            {props.item.emails.map((email) => {
+              return (
+                <React.Fragment key={email}>
+                  <br />
+                  <a href={`mailto:${email}`}>{email}</a>
+                </React.Fragment>
+              );
+            })}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Content() {
+  console.log(data);
   return (
     <section className="content">
       <div className="content_container">
@@ -11,62 +64,9 @@ function Content() {
         </h1>
         <div className="inquiries_form_container">
           <div className="inquiries_container">
-            <div>
-              <p>
-                <strong>We would love to hear from you.</strong>
-              </p>
-              <p>
-                Please complete our contact form and a Mondia representative
-                <br />
-                will be in touch with you shortly to provide assistance.
-              </p>{" "}
-            </div>
-            <div>
-              <div>
-                <h3>General inquiries</h3>
-                <p>
-                  <strong>Mondia Group</strong>
-                  <br />
-                  Farqad Street
-                  <br />
-                  Internet city
-                  <br />
-                  35V5+M4
-                  <br />
-                  Dubai
-                  <br />
-                  United Arab Emirates
-                </p>
-                <p>
-                  <a href="tel:+97145687391">+971 4 568 7391</a>
-                  <br />
-                  <a href="mailto:info@mondia.com">info@mondia.com</a>
-                </p>{" "}
-              </div>
-            </div>
-            <div>
-              <div>
-                <h3>Media inquiries</h3>
-                <p>
-                  <strong>Mondia Group</strong>
-                  <br />
-                  Farqad Street
-                  <br />
-                  Internet city
-                  <br />
-                  35V5+M4
-                  <br />
-                  Dubai
-                  <br />
-                  United Arab Emirates
-                </p>
-                <p>
-                  <a href="tel:+97145687391">+971 4 568 7391</a>
-                  <br />
-                  <a href="mailto:info@mondia.com">info@mondia.com</a>
-                </p>
-              </div>
-            </div>
+            {data.inquiries.map((item) => {
+              return <Inquirie key={item.title} item={item} />;
+            })}
           </div>
 
           <div className="form_container">
