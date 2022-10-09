@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const HandlebarsPlugin = require("handlebars-webpack-plugin");
 
@@ -8,7 +9,14 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   stats: "verbose",
-  mode:"development",
+  mode: "development",
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    compress: true,
+    port: 9000,
+  },
   module: {
     rules: [
       {
@@ -32,7 +40,20 @@ module.exports = {
   },
 
   plugins: [
+    // new HtmlWebpackPlugin({
+    //   title: "Generic Head Title",
+    //   // the template you want to use
+    //   template: path.join(__dirname, "src", "index.hbs"),
+    //   // the output file name
+    //   filename: path.join(__dirname, "dist", "index.html"),
+    //   inject: "head",
+    // }),
     new HandlebarsPlugin({
+      // htmlWebpackPlugin: {
+      //   enabled: true, // register all partials from html-webpack-plugin, defaults to `false`
+      //   prefix: "html", // where to look for htmlWebpackPlugin output. default is "html"
+      //   HtmlWebpackPlugin, // optionally: pass in HtmlWebpackPlugin if it cannot be resolved
+      // },
       // path to hbs entry file(s). Also supports nested directories if write path.join(process.cwd(), "app", "src", "**", "*.hbs"),
       entry: path.join(process.cwd(), "src", "*.hbs"),
       // output path and filename(s). This should lie within the webpacks output-folder
