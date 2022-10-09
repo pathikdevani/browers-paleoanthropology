@@ -29,11 +29,6 @@ module.exports = {
               name: "[name].css",
             },
           },
-          // Creates `style` nodes from JS strings
-          // "style-loader",
-          // // Translates CSS into CommonJS
-          // "css-loader",
-          // Compiles Sass to CSS
           "sass-loader",
         ],
       },
@@ -56,10 +51,5 @@ module.exports = {
       // globbed path to partials, where folder/filename is unique
       partials: [path.join(process.cwd(), "src", "components", "**", "*.hbs")],
     }),
-
-    // new HtmlWebpackPlugin({
-    //   inlineSource: '.(js|css)$'
-    // }),
-    // new HtmlWebpackInlineSourcePlugin(),
   ],
 };
