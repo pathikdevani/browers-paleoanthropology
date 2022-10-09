@@ -248,7 +248,18 @@ const countries = [
     ],
   },
 ];
-module.exports = {
-  inquiries,
-  countries,
-};
+// module.exports = {
+//   inquiries,
+//   countries,
+// };
+
+console.log(
+  JSON.stringify(
+    {
+      inquiries,
+      countries,
+    },
+    null,
+    2
+  )
+);
