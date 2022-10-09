@@ -1,0 +1,19 @@
+<div>
+  <h3>{{this.title}}</h3>
+  <p>
+    <strong>{{this.office_name}}</strong>
+    {{#each this.address}}
+      <br />
+      {{this}}
+    {{/each}}
+  </p>
+  <p>
+    <a href="tel:{{this.mobile}}">
+      {{this.mobile}}
+    </a>
+    {{#each this.emails}}
+      <br />
+      <a href="mailto:{{this}}">{{this}}</a>
+    {{/each}}
+  </p>
+</div>

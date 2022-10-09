@@ -1,0 +1,67 @@
+<section className="content">
+  <div className="content_container">
+    <h1>
+      <span>
+        Contact<span className="green_dot">.</span>
+      </span>
+    </h1>
+    <div className="inquiries_form_container">
+      <div className="inquiries_container">
+        {{! {data.inquiries.map((item) => { return
+        <Inquirie key="{item.title}" item="{item}" />; })} }}
+
+        {{#each inquiries}}
+          {{> components/inquiry this}}
+        {{/each}}
+      </div>
+
+      <div className="form_container">
+        <form>
+          <div>
+            <label hidden>Full Name</label>
+            <input placeholder="Full Name" name="name" />
+          </div>
+
+          <div>
+            <label hidden>Email</label>
+            <input placeholder="Email" name="email" />
+          </div>
+
+          <div>
+            <label hidden>Country</label>
+            <input placeholder="Country" name="country" />
+          </div>
+
+          <div>
+            <label hidden>Company</label>
+            <input placeholder="Company" name="company" />
+          </div>
+
+          <div>
+            <label hidden>Message</label>
+            <textarea rows="4" placeholder="Message" name="message"></textarea>
+          </div>
+
+          <div>
+            This site is protected by reCAPTCHA and the Google
+            <a href="https://policies.google.com/privacy">
+              Privacy Policy
+            </a> and
+            <a href="https://policies.google.com/terms">
+              Terms of Service
+            </a> apply.
+          </div>
+
+          <div>
+            <button type="submit">
+              <span>
+                <span></span>
+                <span>Send Message</span>
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

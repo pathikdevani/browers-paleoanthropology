@@ -1,0 +1,26 @@
+<div className="country">
+  <div className="country-logo">
+    <img
+      width="225"
+      height="225"
+      src="{{this.src}}"
+      alt=""
+      loading="lazy"
+      srcset="{{item.srcset}}"
+      sizes="(max-width: 225px) 100vw, 225px"
+    />
+  </div>
+  <div className="country-title">
+    <h3>
+      <strong>{{this.title}}</strong>
+    </h3>
+  </div>
+  <div className="country-address">
+    <p>
+      {{#each this.address}}
+        <br />
+        {{this}}
+      {{/each}}
+    </p>
+  </div>
+</div>
