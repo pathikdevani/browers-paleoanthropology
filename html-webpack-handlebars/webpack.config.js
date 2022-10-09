@@ -47,7 +47,7 @@ module.exports = {
       // output: path.join(process.cwd(), "build", [path], "[name].html"),
 
       // data passed to main hbs template: `main-template(data)`
-      data: require("./src/data.json"),
+      data: require("../common/data.json"),
 
       // globbed path to partials, where folder/filename is unique
       partials: [path.join(process.cwd(), "src", "components", "**", "*.hbs")],
