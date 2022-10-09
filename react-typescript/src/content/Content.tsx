@@ -1,7 +1,7 @@
 import React from "react";
 
-import "./Content.scss";
-import * as data from "../data";
+import "../../../common/styles/content.scss";
+import data from "../../../common/data.json";
 
 type InquirieType = {
   title: string;

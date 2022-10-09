@@ -1,7 +1,7 @@
 import React from "react";
-import "./Footer.scss";
+import "../../../common/styles/footer.scss";
 
-import * as data from "../data";
+import data from "../../../common/data.json";
 
 type CountryType = {
   src: string;
