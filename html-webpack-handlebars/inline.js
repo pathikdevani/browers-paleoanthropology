@@ -1,11 +1,8 @@
 const minify = require("html-minifier").minify;
 
 const {
-  inlineEnvironmentVariables,
-  inlineRequires,
   inlineScriptTags,
 } = require("inline-scripts");
-
 const inlineStylesheets = require("./node_modules/inline-scripts/src/inlineStylesheets");
 
 const fs = require("fs");

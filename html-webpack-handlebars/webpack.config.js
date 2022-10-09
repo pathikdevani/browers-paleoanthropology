@@ -1,6 +1,8 @@
 const path = require("path");
 const HandlebarsPlugin = require("handlebars-webpack-plugin");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+const isDev = process.env.NODE_EVN !== "production";
 
 module.exports = {
   entry: "./src/index.js",
@@ -8,15 +10,16 @@ module.exports = {
     filename: "main.js",
     path: path.resolve(__dirname, "build"),
   },
-  // stats: "verbose",
-  mode: "production",
-  devServer: {
-    static: {
-      directory: path.join(__dirname, "build"),
-    },
-    compress: true,
-    port: 9000,
-  },
+  mode: process.env.NODE_EVN,
+  devServer: isDev
+    ? {
+        static: {
+          directory: path.join(__dirname, "build"),
+        },
+        compress: true,
+        port: 9000,
+      }
+    : undefined,
   module: {
     rules: [
       {
