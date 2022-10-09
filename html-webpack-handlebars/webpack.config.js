@@ -7,6 +7,8 @@ module.exports = {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
   },
+  stats: "verbose",
+  mode:"development",
   module: {
     rules: [
       {
@@ -43,11 +45,7 @@ module.exports = {
       data: require("./src/data.json"),
 
       // globbed path to partials, where folder/filename is unique
-      partials: [path.join(process.cwd(), "src", "components", "*", "*.hbs")],
-
-      getPartialId: (filePath) => {
-        return "components/" + filePath.match(/\/([^/]+\/[^/]+)\.[^.]+$/).pop();
-      },
+      partials: [path.join(process.cwd(), "src", "components", "**", "*.hbs")],
     }),
   ],
 };
