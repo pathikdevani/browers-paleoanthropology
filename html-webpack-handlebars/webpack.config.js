@@ -1,7 +1,5 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const HandlebarsPlugin = require("handlebars-webpack-plugin");
-const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -18,10 +16,6 @@ module.exports = {
     },
     compress: true,
     port: 9000,
-  },
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin(), new HtmlMinimizerPlugin()],
   },
   module: {
     rules: [
@@ -43,9 +37,7 @@ module.exports = {
       },
     ],
   },
-
   plugins: [
-    
     new HandlebarsPlugin({
       // path to hbs entry file(s). Also supports nested directories if write path.join(process.cwd(), "app", "src", "**", "*.hbs"),
       entry: path.join(process.cwd(), "src", "*.hbs"),
@@ -60,14 +52,6 @@ module.exports = {
 
       // globbed path to partials, where folder/filename is unique
       partials: [path.join(process.cwd(), "src", "components", "**", "*.hbs")],
-    }),
-    new CopyPlugin({
-      patterns: [
-        {
-          context: path.resolve(__dirname, "dist"),
-          from: "*.html",
-        },
-      ],
     }),
     new CleanWebpackPlugin(),
   ],
