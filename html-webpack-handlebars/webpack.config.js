@@ -20,10 +20,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/i,
-        type: "asset/resource",
-      },
-      {
         test: /\.s[ac]ss$/i,
         use: [
           {
