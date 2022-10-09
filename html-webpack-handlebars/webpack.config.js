@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const HandlebarsPlugin = require("handlebars-webpack-plugin");
+const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -55,5 +56,10 @@ module.exports = {
       // globbed path to partials, where folder/filename is unique
       partials: [path.join(process.cwd(), "src", "components", "**", "*.hbs")],
     }),
+
+    // new HtmlWebpackPlugin({
+    //   inlineSource: '.(js|css)$'
+    // }),
+    // new HtmlWebpackInlineSourcePlugin(),
   ],
 };
