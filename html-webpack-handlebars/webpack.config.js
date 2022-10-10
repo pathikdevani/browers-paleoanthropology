@@ -9,6 +9,7 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "build"),
+    publicPath:'./',
   },
   mode: process.env.NODE_EVN,
   devServer: isDev
